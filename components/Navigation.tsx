@@ -22,9 +22,9 @@ const Navigation = () => {
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 text-lg font-semibold text-slate-100"
+          className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.35em] text-slate-200"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-400/40 bg-amber-400/10 text-sm font-bold text-amber-300">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 text-sm font-bold text-amber-300">
             AO
           </span>
           <span className="hidden sm:block">Aron</span>
@@ -35,7 +35,7 @@ const Navigation = () => {
             <motion.a
               key={item.label}
               href={item.href}
-              whileHover={{ y: -2, color: '#fbbf24' }}
+              whileHover={{ y: -1, color: '#fbbf24' }}
               className="text-sm font-medium text-slate-300 transition-colors hover:text-amber-300"
             >
               {item.label}
@@ -45,9 +45,9 @@ const Navigation = () => {
 
         <motion.a
           href="#contact"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="hidden rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-300 transition-colors hover:bg-amber-400/20 md:inline-flex"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="hidden rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-300 transition-colors hover:bg-amber-400/20 md:inline-flex"
         >
           Let&apos;s talk
         </motion.a>
