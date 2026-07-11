@@ -10,6 +10,7 @@ const Navigation = () => {
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
+    { label: 'Services', href: '#services' },
     { label: 'Projects', href: '#projects' },
     { label: 'Contact', href: '#contact' },
   ]
@@ -27,7 +28,7 @@ const Navigation = () => {
           <span className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 text-sm font-bold text-amber-300">
             AO
           </span>
-          <span className="hidden sm:block">Aron</span>
+          <span className="hidden sm:block">Aron Onkware</span>
         </motion.a>
 
         <div className="hidden items-center gap-7 md:flex">

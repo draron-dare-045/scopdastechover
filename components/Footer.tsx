@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <div className="text-xl font-semibold text-amber-300">Aron Onkware</div>
             <p className="mt-3 max-w-xs text-sm leading-7 text-slate-400">
-              Designing and building calm, modern web experiences with a strong point of view.
+              Building refined digital products with clarity, performance, and a premium user experience.
             </p>
           </div>
 
@@ -21,6 +21,7 @@ const Footer = () => {
             <ul className="mt-4 space-y-2 text-sm text-slate-400">
               <li><a href="#home" className="transition-colors hover:text-amber-300">Home</a></li>
               <li><a href="#about" className="transition-colors hover:text-amber-300">About</a></li>
+              <li><a href="#services" className="transition-colors hover:text-amber-300">Services</a></li>
               <li><a href="#projects" className="transition-colors hover:text-amber-300">Projects</a></li>
               <li><a href="#contact" className="transition-colors hover:text-amber-300">Contact</a></li>
             </ul>

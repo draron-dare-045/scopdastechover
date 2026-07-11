@@ -75,11 +75,11 @@ const Hero = () => {
             </motion.div>
 
             <motion.h1 variants={itemVariants} className="text-4xl font-semibold leading-[0.95] text-white sm:text-5xl lg:text-7xl">
-              I build refined digital experiences that feel effortless.
+              I’m Aron Onkware, and I create thoughtful digital products that feel polished, fast, and memorable.
             </motion.h1>
 
             <motion.p variants={itemVariants} className="max-w-2xl text-lg leading-8 text-slate-300">
-              I partner with founders and teams to turn ambitious ideas into polished products, precise interfaces, and reliable frontend systems.
+              I design and build modern web experiences for startups, founders, and growing teams who care about clarity, quality, and a strong first impression.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col gap-3 sm:flex-row">

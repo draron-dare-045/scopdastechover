@@ -29,7 +29,7 @@ const About = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="mb-10">
           <span className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">About</span>
           <h2 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
-            I bring together product thinking, visual craft, and reliable engineering.
+            I’m Aron Onkware, and I bring together product thinking, visual craft, and reliable engineering.
           </h2>
         </motion.div>
 
