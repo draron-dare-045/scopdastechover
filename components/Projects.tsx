@@ -10,7 +10,7 @@ const Projects = () => {
 
   const featuredProject = {
     title: 'Northstar Finance',
-    description: 'A refined financial platform concept focused on trust, clarity, and fast action for modern teams.',
+    description: 'A premium finance product experience designed around trust, clarity, and streamlined decision-making for modern teams.',
     tags: ['React', 'TypeScript', 'Design Systems', 'Tailwind'],
     image: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1200&h=800&fit=crop',
     github: 'https://github.com',
@@ -20,7 +20,7 @@ const Projects = () => {
   const projects = [
     {
       title: 'Bedrock Agents',
-      description: 'An AI-assisted workflow experience designed for clarity, speed, and product confidence.',
+      description: 'An AI-assisted workflow experience crafted for clarity, speed, and confident product interaction.',
       tags: ['Next.js', 'AWS', 'AI'],
       image: 'https://images.unsplash.com/photo-1677442d019cecf4fbb9ffc827260785?w=600&h=400&fit=crop',
       github: 'https://github.com',
@@ -28,7 +28,7 @@ const Projects = () => {
     },
     {
       title: 'Cursor Community',
-      description: 'A community-led product experience shaped around collaboration and discovery.',
+      description: 'A community-led digital experience shaped around collaboration, discovery, and a stronger sense of belonging.',
       tags: ['Next.js', 'WebSockets', 'MongoDB'],
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
       github: 'https://github.com',
@@ -43,7 +43,7 @@ const Projects = () => {
           <span className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">Portfolio</span>
           <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">Selected work</h2>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
-            A snapshot of the kind of work I enjoy most: thoughtful UI, clear product structure, and a strong sense of craft.
+            A snapshot of the kind of work I enjoy most: thoughtful interfaces, product clarity, and polished execution from concept to launch.
           </p>
         </motion.div>
 
