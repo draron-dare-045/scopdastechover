@@ -34,7 +34,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid gap-8 lg:grid-cols-[1.06fr_0.94fr]">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.15 }} className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-slate-950/20">
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.15 }} whileHover={{ y: -4, scale: 1.01 }} className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-slate-950/20">
             <p className="text-lg leading-8 text-slate-300">
               I&apos;m a product-minded developer based in Nairobi, with a strong focus on clarity, pace, and elegance. I enjoy shaping experiences that feel polished from the first interaction and hold up well in the real world.
             </p>
@@ -49,22 +49,22 @@ const About = () => {
 
           <motion.div initial={{ opacity: 0, x: 20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.25 }} className="space-y-4">
             {focusAreas.map((area, index) => (
-              <div key={index} className="rounded-[1.5rem] border border-white/10 bg-slate-900/70 p-5">
+              <motion.div key={index} whileHover={{ y: -3, scale: 1.01 }} className="rounded-[1.5rem] border border-white/10 bg-slate-900/70 p-5">
                 <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">{area.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-slate-300">{area.description}</p>
-              </div>
+              </motion.div>
             ))}
 
-            <div className="rounded-[1.5rem] border border-white/10 bg-slate-900/70 p-5">
+            <motion.div whileHover={{ y: -3, scale: 1.01 }} className="rounded-[1.5rem] border border-white/10 bg-slate-900/70 p-5">
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Core stack</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {stack.map((item, index) => (
-                  <motion.span key={index} initial={{ opacity: 0, scale: 0.95 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.25, delay: 0.03 * index }} className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-200">
+                  <motion.span key={index} initial={{ opacity: 0, scale: 0.95 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.25, delay: 0.03 * index }} whileHover={{ y: -2, scale: 1.03 }} className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-200">
                     {item}
                   </motion.span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

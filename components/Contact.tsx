@@ -43,20 +43,20 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }} className="mb-10 grid gap-6 rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-slate-950/20 lg:grid-cols-[0.9fr_1.1fr]">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }} whileHover={{ y: -4, scale: 1.01 }} className="mb-10 grid gap-6 rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-slate-950/20 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-4">
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+            <motion.div whileHover={{ y: -3, scale: 1.01 }} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
               <h3 className="text-[11px] font-semibold uppercase tracking-[0.35em] text-amber-300">Email</h3>
               <a href="mailto:aronondieki046@gmail.com" className="mt-2 block text-lg font-medium text-slate-100 transition-colors hover:text-amber-300">aronondieki046@gmail.com</a>
-            </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+            </motion.div>
+            <motion.div whileHover={{ y: -3, scale: 1.01 }} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
               <h3 className="text-[11px] font-semibold uppercase tracking-[0.35em] text-amber-300">Location</h3>
               <p className="mt-2 text-lg text-slate-200">Nairobi, Kenya</p>
-            </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+            </motion.div>
+            <motion.div whileHover={{ y: -3, scale: 1.01 }} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
               <h3 className="text-[11px] font-semibold uppercase tracking-[0.35em] text-amber-300">Availability</h3>
               <p className="mt-2 text-lg text-slate-200">Open to freelance and product collaborations.</p>
-            </div>
+            </motion.div>
           </div>
 
           <motion.form initial={{ opacity: 0, y: 18 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} onSubmit={handleSubmit} className="space-y-5 rounded-[1.75rem] border border-white/10 bg-slate-950/80 p-6">
@@ -76,7 +76,7 @@ const Contact = () => {
               <textarea name="message" placeholder="Tell me about your idea or project" value={formState.message} onChange={handleChange} required rows={6} className="w-full resize-none rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-100 outline-none transition focus:border-amber-400/50" />
             </label>
 
-            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-5 py-3 font-semibold text-slate-950">
+            <motion.button type="submit" whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }} className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-5 py-3 font-semibold text-slate-950">
               Send message
               <ArrowRight size={16} />
             </motion.button>

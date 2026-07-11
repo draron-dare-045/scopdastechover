@@ -47,11 +47,11 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.65 }} className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-4 shadow-2xl shadow-slate-950/20 lg:p-6">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.65 }} whileHover={{ y: -4, scale: 1.01 }} className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-4 shadow-2xl shadow-slate-950/20 lg:p-6">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="overflow-hidden rounded-[1.5rem] border border-white/10">
-              <img src={featuredProject.image} alt={featuredProject.title} className="h-full min-h-[280px] w-full object-cover" />
-            </div>
+            <motion.div whileHover={{ scale: 1.01 }} className="overflow-hidden rounded-[1.5rem] border border-white/10">
+              <img src={featuredProject.image} alt={featuredProject.title} className="h-full min-h-[280px] w-full object-cover transition-transform duration-500" />
+            </motion.div>
 
             <div className="flex flex-col justify-between rounded-[1.5rem] border border-white/10 bg-slate-950/70 p-6">
               <div>
@@ -66,11 +66,11 @@ const Projects = () => {
               </div>
 
               <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-4">
-                <motion.a href={featuredProject.github} target="_blank" rel="noopener noreferrer" whileHover={{ x: 2 }} className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors hover:text-amber-300">
+                <motion.a href={featuredProject.github} target="_blank" rel="noopener noreferrer" whileHover={{ x: 2, y: -1 }} className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors hover:text-amber-300">
                   <FaGithub size={16} />
                   Code
                 </motion.a>
-                <motion.a href={featuredProject.live} target="_blank" rel="noopener noreferrer" whileHover={{ x: 2 }} className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors hover:text-amber-300">
+                <motion.a href={featuredProject.live} target="_blank" rel="noopener noreferrer" whileHover={{ x: 2, y: -1 }} className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors hover:text-amber-300">
                   <ArrowUpRight size={16} />
                   Preview
                 </motion.a>
@@ -81,9 +81,9 @@ const Projects = () => {
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {projects.map((project, index) => (
-            <motion.article key={index} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.08 * index }} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900/70 shadow-xl shadow-slate-950/20">
+            <motion.article key={index} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.08 * index }} whileHover={{ y: -5, scale: 1.01 }} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900/70 shadow-xl shadow-slate-950/20">
               <div className="h-44 overflow-hidden">
-                <img src={project.image} alt={project.title} className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                <motion.img src={project.image} alt={project.title} whileHover={{ scale: 1.04 }} className="h-full w-full object-cover transition-transform duration-500" />
               </div>
               <div className="space-y-4 p-6">
                 <div>
