@@ -27,12 +27,11 @@ export function useInView(options: UseInViewOptions = {}) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         const isIntersecting = entry.isIntersecting;
-
-        setInView(isIntersecting);
-
-        // Unobserve if triggerOnce is true and it became visible
-        if (isIntersecting && triggerOnce) {
-          observer.unobserve(currentRef);
+        if (isIntersecting) {
+          setInView(true);
+          if (triggerOnce) observer.unobserve(currentRef);
+        } else if (!triggerOnce) {
+          setInView(false);
         }
       },
       {

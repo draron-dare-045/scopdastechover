@@ -56,6 +56,12 @@ const Hero = () => {
             className={`absolute ${orb.className} rounded-full bg-gradient-to-br from-amber-400/20 via-sky-500/10 to-fuchsia-500/20 blur-3xl`}
           />
         ))}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1, ease: 'easeOut' }}
+          className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_60%)]"
+        />
       </div>
 
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-10">
