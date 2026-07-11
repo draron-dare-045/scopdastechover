@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from '@/hooks/useInView'
-import { Mail } from 'lucide-react'
+import { ArrowRight, Mail } from 'lucide-react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { useState } from 'react'
 
@@ -14,9 +14,7 @@ const Contact = () => {
     message: '',
   })
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
@@ -28,120 +26,82 @@ const Contact = () => {
   }
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: FaGithub, href: 'https://github.com/draron-dare-045', label: 'GitHub' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/aron-onkware-221b27362/', label: 'LinkedIn' },
     { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:hello@example.com', label: 'Email' },
+    { icon: Mail, href: 'mailto:aronondieki046@gmail.com', label: 'Email' },
   ]
 
   return (
-    <section
-      id="contact"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800"
-      ref={ref}
-    >
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="px-4 py-20 sm:px-6 lg:px-8" ref={ref}>
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12 text-center"
         >
-          <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase">
-            Get In Touch
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-4">
-            Let's collaborate
-          </h2>
-          <p className="text-gray-300 text-lg">
-            I'm always open to new opportunities and meaningful conversations. Reach out and let's create something amazing together.
+          <span className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">Get in touch</span>
+          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Let&apos;s build something memorable.</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-300">
+            Whether you need a polished product launch, a thoughtful web experience, or a fresh UI direction, I&apos;d love to help.
           </p>
         </motion.div>
 
-        {/* Contact Info */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-slate-700/50 rounded-xl p-8 mb-12 border border-slate-600"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-10 grid gap-6 rounded-3xl border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-slate-950/20 lg:grid-cols-[0.9fr_1.1fr]"
         >
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-sm font-semibold text-amber-400 uppercase mb-2">
-                Email
-              </h3>
-              <a
-                href="mailto:hello@example.com"
-                className="text-gray-200 hover:text-amber-400 transition-colors text-lg font-medium"
-              >
-                hello@example.com
+          <div className="space-y-4">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Email</h3>
+              <a href="mailto:aronondieki046@gmail.com" className="mt-2 block text-lg font-medium text-slate-100 transition-colors hover:text-amber-300">
+                aronondieki046@gmail.com
               </a>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-amber-400 uppercase mb-2">
-                Location
-              </h3>
-              <p className="text-gray-300 text-lg">Nairobi, Kenya</p>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Location</h3>
+              <p className="mt-2 text-lg text-slate-200">Nairobi, Kenya</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Availability</h3>
+              <p className="mt-2 text-lg text-slate-200">Open to freelance and product collaborations.</p>
             </div>
           </div>
+
+          <motion.form
+            initial={{ opacity: 0, y: 18 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            onSubmit={handleSubmit}
+            className="space-y-5 rounded-3xl border border-white/10 bg-slate-950/80 p-6"
+          >
+            <div className="grid gap-5 md:grid-cols-2">
+              <label className="space-y-2 text-sm text-slate-300">
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name" value={formState.name} onChange={handleChange} required className="w-full rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-100 outline-none transition focus:border-amber-400/50" />
+              </label>
+              <label className="space-y-2 text-sm text-slate-300">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@example.com" value={formState.email} onChange={handleChange} required className="w-full rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-100 outline-none transition focus:border-amber-400/50" />
+              </label>
+            </div>
+
+            <label className="space-y-2 text-sm text-slate-300">
+              <span>Message</span>
+              <textarea name="message" placeholder="Tell me about your idea or project" value={formState.message} onChange={handleChange} required rows={6} className="w-full resize-none rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-100 outline-none transition focus:border-amber-400/50" />
+            </label>
+
+            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-5 py-3 font-semibold text-slate-950">
+              Send message
+              <ArrowRight size={16} />
+            </motion.button>
+          </motion.form>
         </motion.div>
 
-        {/* Contact Form */}
-        <motion.form
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          onSubmit={handleSubmit}
-          className="bg-slate-700/50 rounded-xl p-8 border border-slate-600 space-y-6"
-        >
-          <div className="grid md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formState.name}
-              onChange={handleChange}
-              required
-              className="bg-slate-800 border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-amber-400 transition-colors"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formState.email}
-              onChange={handleChange}
-              required
-              className="bg-slate-800 border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-amber-400 transition-colors"
-            />
-          </div>
-
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={formState.message}
-            onChange={handleChange}
-            required
-            rows={6}
-            className="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-amber-400 transition-colors resize-none"
-          ></textarea>
-
-          <motion.button
-            type="submit"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition-colors"
-          >
-            Send Message
-          </motion.button>
-        </motion.form>
-
-        {/* Social Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 flex justify-center gap-6"
-        >
+        <motion.div initial={{ opacity: 0, y: 18 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-wrap justify-center gap-4">
           {socialLinks.map((social, index) => {
             const Icon = social.icon
             return (
@@ -150,10 +110,11 @@ const Contact = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, y: -5 }}
-                className="bg-slate-700 hover:bg-amber-400 text-gray-300 hover:text-slate-900 p-4 rounded-lg transition-all"
+                whileHover={{ scale: 1.06, y: -3 }}
+                className="flex items-center gap-3 rounded-full border border-white/10 bg-slate-900/70 px-4 py-3 text-sm font-medium text-slate-200 transition-colors hover:border-amber-400/40 hover:text-amber-300"
               >
-                <Icon size={24} />
+                <Icon size={18} />
+                {social.label}
               </motion.a>
             )
           })}

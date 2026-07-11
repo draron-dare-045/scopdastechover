@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from '@/hooks/useInView'
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { ArrowUpRight } from 'lucide-react'
+import { FaGithub } from 'react-icons/fa'
 
 const Projects = () => {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
@@ -10,7 +11,7 @@ const Projects = () => {
   const projects = [
     {
       title: 'Banking App',
-      description: 'Modern banking dashboard with real-time transactions, balance tracking, and expense analytics.',
+      description: 'A premium financial dashboard designed for clarity, trust, and effortless account management.',
       tags: ['React', 'TypeScript', 'Tailwind', 'Redux'],
       image: 'https://images.unsplash.com/photo-1611697260904-210330a63efe?w=600&h=400&fit=crop',
       github: 'https://github.com',
@@ -18,7 +19,7 @@ const Projects = () => {
     },
     {
       title: 'Amazon Bedrock Agents',
-      description: 'AI-powered agents platform leveraging AWS services for intelligent automation and data processing.',
+      description: 'An AI-driven platform concept focused on intelligent automation and thoughtful developer workflows.',
       tags: ['Next.js', 'AWS', 'AI/ML', 'Python'],
       image: 'https://images.unsplash.com/photo-1677442d019cecf4fbb9ffc827260785?w=600&h=400&fit=crop',
       github: 'https://github.com',
@@ -26,7 +27,7 @@ const Projects = () => {
     },
     {
       title: 'Cursor AI Community',
-      description: 'Community platform for AI enthusiasts with real-time collaboration and knowledge sharing features.',
+      description: 'A community-led experience for sharing knowledge, collaboration, and meaningful product discovery.',
       tags: ['Next.js', 'WebSockets', 'MongoDB', 'Express'],
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
       github: 'https://github.com',
@@ -34,134 +35,80 @@ const Projects = () => {
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  }
-
   return (
-    <section
-      id="projects"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-800"
-      ref={ref}
-    >
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="px-4 py-20 sm:px-6 lg:px-8" ref={ref}>
+      <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-12"
         >
-          <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase">
-            Portfolio
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-4">
-            Selected Projects
-          </h2>
-          <p className="text-gray-300 text-lg max-w-2xl">
-            Here are some of my recent works showcasing expertise in web development, UI/UX design, and data science.
+          <span className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">Portfolio</span>
+          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Selected projects</h2>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
+            A collection of work that balances beautiful interfaces with real-world product thinking.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={index}
-              variants={itemVariants}
-              className="group relative bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-400 transition-all"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 shadow-2xl shadow-slate-950/20"
             >
-              {/* Image */}
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
               </div>
 
-              {/* Content */}
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  {project.description}
-                </p>
+              <div className="space-y-4 p-6">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                  <p className="text-sm leading-7 text-slate-300">{project.description}</p>
+                </div>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-xs bg-slate-700/50 text-amber-300 px-3 py-1 rounded-full"
-                    >
+                    <span key={i} className="rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-200">
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Links */}
-                <div className="flex gap-3 pt-4 border-t border-slate-700">
+                <div className="flex items-center gap-3 border-t border-white/10 pt-4">
                   <motion.a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    className="text-gray-300 hover:text-amber-400 transition-colors"
+                    whileHover={{ x: 2 }}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors hover:text-amber-300"
                   >
-                    <FaGithub size={18} />
+                    <FaGithub size={16} />
+                    Code
                   </motion.a>
                   <motion.a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    className="text-gray-300 hover:text-amber-400 transition-colors"
+                    whileHover={{ x: 2 }}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors hover:text-amber-300"
                   >
-                    <FaExternalLinkAlt size={18} />
+                    <ArrowUpRight size={16} />
+                    Preview
                   </motion.a>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
-        </motion.div>
-
-        {/* View All Link */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-16"
-        >
-          <a
-            href="#"
-            className="text-amber-400 hover:text-amber-300 font-semibold inline-flex items-center gap-2 text-lg"
-          >
-            View All Projects
-            <FaExternalLinkAlt size={20} />
-          </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
