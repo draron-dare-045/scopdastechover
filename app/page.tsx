@@ -1,8 +1,9 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
-import Services from '@/components/Services';
+import Skills from '@/components/Services';
 import Projects from '@/components/Projects';
+import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import CursorGlow from '@/components/CursorGlow';
@@ -15,8 +16,9 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
-      <Services />
+      <Skills />
       <Projects />
+      <Experience />
       <Contact />
       <Footer />
     </main>

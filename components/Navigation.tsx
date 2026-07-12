@@ -1,31 +1,35 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Menu, Moon, Sun, X } from 'lucide-react'
 import { useState } from 'react'
+import { useTheme } from '@/components/ThemeProvider'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
+    { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Experience', href: '#experience' },
     { label: 'Contact', href: '#contact' },
   ]
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 border-b backdrop-blur-xl" style={{ backgroundColor: 'var(--surface-strong)', borderColor: 'var(--border)' }}>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <motion.a
           href="#home"
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.35em] text-slate-200"
+          className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.35em]"
+          style={{ color: 'var(--foreground)' }}
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 text-sm font-bold text-amber-300">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full border text-sm font-bold" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface-soft)', color: 'var(--accent)' }}>
             AO
           </span>
           <span className="hidden sm:block">Aron Onkware</span>
@@ -36,58 +40,77 @@ const Navigation = () => {
             <motion.a
               key={item.label}
               href={item.href}
-              whileHover={{ y: -1, color: '#fbbf24' }}
-              className="text-sm font-medium text-slate-300 transition-colors hover:text-amber-300"
+              whileHover={{ y: -1, color: 'var(--accent)' }}
+              className="text-sm font-medium transition-colors"
+              style={{ color: 'var(--muted)' }}
             >
               {item.label}
             </motion.a>
           ))}
         </div>
 
-        <motion.a
-          href="#contact"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="hidden rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-300 transition-colors hover:bg-amber-400/20 md:inline-flex"
-        >
-          Let&apos;s talk
-        </motion.a>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="rounded-full border p-2 transition-colors"
+            style={{ borderColor: 'var(--border)', color: 'var(--foreground)' }}
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
 
-        <button
-          className="rounded-full border border-white/10 p-2 text-slate-200 md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
-
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="border-t border-white/10 bg-slate-950/95 px-4 py-4 md:hidden"
-        >
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-amber-300"
-              onClick={() => setIsOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
+          <motion.a
             href="#contact"
-            className="mt-3 block rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-center text-sm font-semibold text-amber-300"
-            onClick={() => setIsOpen(false)}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="hidden rounded-full border px-4 py-2 text-sm font-semibold transition-colors md:inline-flex"
+            style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface-soft)', color: 'var(--accent)' }}
           >
             Let&apos;s talk
-          </a>
-        </motion.div>
-      )}
+          </motion.a>
+
+          <button
+            className="rounded-full border p-2 md:hidden"
+            style={{ borderColor: 'var(--border)', color: 'var(--foreground)' }}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="border-t px-4 py-4 md:hidden"
+            style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface-strong)' }}
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="block rounded-lg px-3 py-2 text-sm font-medium transition-colors"
+                style={{ color: 'var(--muted)' }}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              className="mt-3 block rounded-full border px-3 py-2 text-center text-sm font-semibold"
+              style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface-soft)', color: 'var(--accent)' }}
+              onClick={() => setIsOpen(false)}
+            >
+              Let&apos;s talk
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }

@@ -26,12 +26,12 @@ const Services = () => {
   ]
 
   return (
-    <section id="services" className="px-4 py-20 sm:px-6 lg:px-8" ref={ref}>
+    <section id="skills" className="px-4 py-20 sm:px-6 lg:px-8" ref={ref}>
       <div className="mx-auto max-w-7xl">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55 }} className="mb-10 max-w-3xl">
-          <span className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">Services</span>
+          <span className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">Skills</span>
           <h2 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">
-            I help teams turn ideas into polished digital products.
+            I build modern products with a balance of design, code, and product thinking.
           </h2>
           <p className="mt-4 text-lg leading-8 text-slate-300">
             From concept to execution, I focus on clarity, craft, and user experience so the work feels considered at every stage.
