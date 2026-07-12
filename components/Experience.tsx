@@ -26,7 +26,7 @@ const Experience = () => {
       <div className="mx-auto max-w-7xl">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55 }} className="mb-10 max-w-3xl">
           <span className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">Experience</span>
-          <h2 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl" style={{ color: 'var(--foreground)' }}>
             Building thoughtful products through hands-on product and frontend experience.
           </h2>
         </motion.div>
@@ -38,16 +38,16 @@ const Experience = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.08 * index }}
-              className="rounded-[1.75rem] border border-white/10 bg-slate-900/70 p-6 shadow-xl shadow-slate-950/20"
+              className="rounded-[1.75rem] p-6 surface-card"
             >
               <div className="flex items-center justify-between gap-3">
-                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                <h3 className="text-xl font-semibold" style={{ color: 'var(--foreground)' }}>{item.title}</h3>
                 <span className="rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-amber-200">
                   {item.period}
                 </span>
               </div>
-              <p className="mt-3 text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">{item.company}</p>
-              <p className="mt-4 text-sm leading-7 text-slate-300">{item.description}</p>
+              <p className="mt-3 text-sm font-semibold uppercase tracking-[0.25em] surface-muted">{item.company}</p>
+              <p className="mt-4 text-sm leading-7 surface-muted">{item.description}</p>
             </motion.article>
           ))}
         </div>

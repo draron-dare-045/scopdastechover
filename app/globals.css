@@ -34,6 +34,34 @@
   --shadow: 0 20px 60px rgba(249, 115, 22, 0.12);
 }
 
+.surface-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  color: var(--foreground);
+}
+
+.surface-card-strong {
+  background-color: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  color: var(--foreground);
+}
+
+.surface-muted {
+  color: var(--muted);
+}
+
+.surface-accent {
+  color: var(--accent);
+}
+
+.surface-pill {
+  background-color: var(--surface-soft);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
 html {
   scroll-behavior: smooth;
 }
